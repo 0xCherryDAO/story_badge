@@ -1,0 +1,12 @@
+aiohttp==3.11.11
+aiohttp_socks==0.10.1
+colorama==0.4.6
+eth_account==0.13.4
+eth_typing==5.1.0
+loguru==0.7.3
+pydantic==2.10.6
+pyuseragents==1.0.5
+questionary==2.1.0
+SQLAlchemy==2.0.37
+aiosqlite==0.20.0
+web3==7.7.0
