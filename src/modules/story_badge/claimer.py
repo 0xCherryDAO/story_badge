@@ -5,7 +5,7 @@ from eth_account.messages import encode_defunct
 from loguru import logger
 import pyuseragents
 
-from config import RETRIES, PAUSE_BETWEEN_WALLETS
+from config import RETRIES, PAUSE_BETWEEN_RETRIES
 from src.utils.common.wrappers.decorators import retry
 from src.utils.request_client.client import RequestClient
 from src.utils.user.account import Account
@@ -59,7 +59,7 @@ class Story(Account, RequestClient):
         signature = signed_message.signature.hex()
         return signature
 
-    @retry(retries=RETRIES, delay=PAUSE_BETWEEN_WALLETS, backoff=1.5)
+    @retry(retries=RETRIES, delay=PAUSE_BETWEEN_RETRIES, backoff=1.5)
     async def claim_badge(self) -> Optional[bool]:
         eligible = await self.check_if_eligible()
         if not eligible:
